@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour {
 	private int level = 1;
 
 	// Use this for initialization
-	void Awake () {
-		boardMgr = GetComponent<BoardManager> ();
+	void Start () {
+		//boardMgr = GetComponent<BoardManager> ();
 		InitGame ();
 	}
 
