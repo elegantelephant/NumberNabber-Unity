@@ -16,7 +16,11 @@ public class BoardManager : MonoBehaviour {
 	private SpriteRenderer[,] tiles;
 	private float tileToDisplayRatio = 1.0f;
 
-	private float GetTileToDisplayRatio() {
+	public float GetDisplayRatio() {
+		return tileToDisplayRatio;
+	}
+
+	public float GetTileToDisplayRatio() {
 		Camera cam = Camera.main;
 		float camHeight = 2.0f * cam.orthographicSize;
 		float camWidth = camHeight * cam.aspect;
@@ -24,6 +28,10 @@ public class BoardManager : MonoBehaviour {
 		float boardsize = camWidth * displayPercentage;
 		float size = boardsize / width;
 		return size;
+	}
+
+	public Vector3 GetPosition (int row, int column) {
+		return new Vector3 (-width / 2 + column, height / 2 - row, -0.5f) * tileToDisplayRatio;
 	}
 
 	private void BoardSetup() {
